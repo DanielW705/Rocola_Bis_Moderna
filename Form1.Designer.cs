@@ -28,25 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             tableLayoutPanel1 = new TableLayoutPanel();
             tableLayoutPanel2 = new TableLayoutPanel();
             tableLayoutPanel3 = new TableLayoutPanel();
-            textBox2 = new TextBox();
+            txtbxDuracion = new TextBox();
             label1 = new Label();
-            textBox1 = new TextBox();
+            txtbxNombreCancion = new TextBox();
             label2 = new Label();
             label3 = new Label();
             label5 = new Label();
             label4 = new Label();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
+            txtbxAlbum = new TextBox();
+            txtboxGenero = new TextBox();
+            btnSubirArchivo = new Button();
+            btnAgregarActualizar = new Button();
             tableLayoutPanel4 = new TableLayoutPanel();
-            button1 = new Button();
-            button2 = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
+            pBMusicProgress = new ProgressBar();
+            ProgressTimer = new System.Windows.Forms.Timer(components);
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
@@ -92,17 +95,17 @@
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
             tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel3.Controls.Add(textBox2, 1, 1);
+            tableLayoutPanel3.Controls.Add(txtbxDuracion, 1, 1);
             tableLayoutPanel3.Controls.Add(label1, 0, 0);
-            tableLayoutPanel3.Controls.Add(textBox1, 1, 0);
+            tableLayoutPanel3.Controls.Add(txtbxNombreCancion, 1, 0);
             tableLayoutPanel3.Controls.Add(label2, 0, 1);
             tableLayoutPanel3.Controls.Add(label3, 0, 2);
             tableLayoutPanel3.Controls.Add(label5, 0, 4);
             tableLayoutPanel3.Controls.Add(label4, 0, 3);
-            tableLayoutPanel3.Controls.Add(textBox3, 1, 2);
-            tableLayoutPanel3.Controls.Add(textBox4, 1, 3);
-            tableLayoutPanel3.Controls.Add(button1, 1, 4);
-            tableLayoutPanel3.Controls.Add(button2, 2, 2);
+            tableLayoutPanel3.Controls.Add(txtbxAlbum, 1, 2);
+            tableLayoutPanel3.Controls.Add(txtboxGenero, 1, 3);
+            tableLayoutPanel3.Controls.Add(btnSubirArchivo, 1, 4);
+            tableLayoutPanel3.Controls.Add(btnAgregarActualizar, 2, 2);
             tableLayoutPanel3.Dock = DockStyle.Fill;
             tableLayoutPanel3.Location = new Point(3, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -115,12 +118,13 @@
             tableLayoutPanel3.Size = new Size(430, 146);
             tableLayoutPanel3.TabIndex = 0;
             // 
-            // textBox2
+            // txtbxDuracion
             // 
-            textBox2.Location = new Point(146, 32);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 2;
+            txtbxDuracion.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            txtbxDuracion.Location = new Point(146, 32);
+            txtbxDuracion.Name = "txtbxDuracion";
+            txtbxDuracion.Size = new Size(137, 23);
+            txtbxDuracion.TabIndex = 2;
             // 
             // label1
             // 
@@ -130,15 +134,16 @@
             label1.Name = "label1";
             label1.Size = new Size(137, 29);
             label1.TabIndex = 1;
-            label1.Text = "label1";
+            label1.Text = "Nombre de la cancion: ";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox1
+            // txtbxNombreCancion
             // 
-            textBox1.Location = new Point(146, 3);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 1;
+            txtbxNombreCancion.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            txtbxNombreCancion.Location = new Point(146, 3);
+            txtbxNombreCancion.Name = "txtbxNombreCancion";
+            txtbxNombreCancion.Size = new Size(137, 23);
+            txtbxNombreCancion.TabIndex = 1;
             // 
             // label2
             // 
@@ -148,7 +153,7 @@
             label2.Name = "label2";
             label2.Size = new Size(137, 29);
             label2.TabIndex = 2;
-            label2.Text = "label2";
+            label2.Text = "Duracion: ";
             label2.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label3
@@ -159,7 +164,7 @@
             label3.Name = "label3";
             label3.Size = new Size(137, 29);
             label3.TabIndex = 3;
-            label3.Text = "label3";
+            label3.Text = "Album: ";
             label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label5
@@ -170,7 +175,7 @@
             label5.Name = "label5";
             label5.Size = new Size(137, 30);
             label5.TabIndex = 5;
-            label5.Text = "label5";
+            label5.Text = "Archivo: ";
             label5.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label4
@@ -181,22 +186,45 @@
             label4.Name = "label4";
             label4.Size = new Size(137, 29);
             label4.TabIndex = 4;
-            label4.Text = "label4";
+            label4.Text = "Genero: ";
             label4.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // textBox3
+            // txtbxAlbum
             // 
-            textBox3.Location = new Point(146, 61);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 6;
+            txtbxAlbum.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            txtbxAlbum.Location = new Point(146, 61);
+            txtbxAlbum.Name = "txtbxAlbum";
+            txtbxAlbum.Size = new Size(137, 23);
+            txtbxAlbum.TabIndex = 6;
             // 
-            // textBox4
+            // txtboxGenero
             // 
-            textBox4.Location = new Point(146, 90);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 7;
+            txtboxGenero.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            txtboxGenero.Location = new Point(146, 90);
+            txtboxGenero.Name = "txtboxGenero";
+            txtboxGenero.Size = new Size(137, 23);
+            txtboxGenero.TabIndex = 7;
+            // 
+            // btnSubirArchivo
+            // 
+            btnSubirArchivo.Anchor = AnchorStyles.None;
+            btnSubirArchivo.Location = new Point(177, 119);
+            btnSubirArchivo.Name = "btnSubirArchivo";
+            btnSubirArchivo.Size = new Size(75, 23);
+            btnSubirArchivo.TabIndex = 8;
+            btnSubirArchivo.Text = "Subir Archivo";
+            btnSubirArchivo.UseVisualStyleBackColor = true;
+            // 
+            // btnAgregarActualizar
+            // 
+            btnAgregarActualizar.Anchor = AnchorStyles.None;
+            btnAgregarActualizar.Location = new Point(305, 68);
+            btnAgregarActualizar.Name = "btnAgregarActualizar";
+            tableLayoutPanel3.SetRowSpan(btnAgregarActualizar, 2);
+            btnAgregarActualizar.Size = new Size(105, 37);
+            btnAgregarActualizar.TabIndex = 9;
+            btnAgregarActualizar.Text = "Agregar";
+            btnAgregarActualizar.UseVisualStyleBackColor = true;
             // 
             // tableLayoutPanel4
             // 
@@ -210,6 +238,7 @@
             tableLayoutPanel4.Controls.Add(pictureBox2, 1, 1);
             tableLayoutPanel4.Controls.Add(pictureBox3, 2, 1);
             tableLayoutPanel4.Controls.Add(pictureBox4, 3, 1);
+            tableLayoutPanel4.Controls.Add(pBMusicProgress, 0, 0);
             tableLayoutPanel4.Dock = DockStyle.Fill;
             tableLayoutPanel4.Location = new Point(439, 3);
             tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -219,55 +248,58 @@
             tableLayoutPanel4.Size = new Size(352, 146);
             tableLayoutPanel4.TabIndex = 1;
             // 
-            // button1
-            // 
-            button1.Location = new Point(146, 119);
-            button1.Name = "button1";
-            button1.Size = new Size(75, 23);
-            button1.TabIndex = 8;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            button2.Location = new Point(289, 61);
-            button2.Name = "button2";
-            button2.Size = new Size(75, 23);
-            button2.TabIndex = 9;
-            button2.Text = "button2";
-            button2.UseVisualStyleBackColor = true;
-            // 
             // pictureBox1
             // 
+            pictureBox1.Dock = DockStyle.Fill;
+            pictureBox1.Image = Rocola_Bis_Moderna.Properties.Resources.arrow;
             pictureBox1.Location = new Point(3, 76);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(82, 50);
+            pictureBox1.Size = new Size(82, 67);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
+            pictureBox2.Dock = DockStyle.Fill;
+            pictureBox2.Image = Rocola_Bis_Moderna.Properties.Resources.music_play;
             pictureBox2.Location = new Point(91, 76);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(82, 50);
+            pictureBox2.Size = new Size(82, 67);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox2.TabIndex = 1;
             pictureBox2.TabStop = false;
             // 
             // pictureBox3
             // 
+            pictureBox3.Dock = DockStyle.Fill;
+            pictureBox3.Image = Rocola_Bis_Moderna.Properties.Resources.music_pause;
             pictureBox3.Location = new Point(179, 76);
             pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(82, 50);
+            pictureBox3.Size = new Size(82, 67);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 2;
             pictureBox3.TabStop = false;
             // 
             // pictureBox4
             // 
+            pictureBox4.Dock = DockStyle.Fill;
+            pictureBox4.Image = Rocola_Bis_Moderna.Properties.Resources.arrow;
             pictureBox4.Location = new Point(267, 76);
             pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(82, 50);
+            pictureBox4.Size = new Size(82, 67);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 3;
             pictureBox4.TabStop = false;
+            // 
+            // pBMusicProgress
+            // 
+            pBMusicProgress.Anchor = AnchorStyles.None;
+            tableLayoutPanel4.SetColumnSpan(pBMusicProgress, 4);
+            pBMusicProgress.Location = new Point(4, 25);
+            pBMusicProgress.Name = "pBMusicProgress";
+            pBMusicProgress.Size = new Size(343, 23);
+            pBMusicProgress.TabIndex = 4;
             // 
             // Form1
             // 
@@ -301,15 +333,17 @@
         private Label label3;
         private Label label5;
         private Label label4;
-        private TextBox textBox2;
-        private TextBox textBox1;
-        private TextBox textBox3;
-        private TextBox textBox4;
-        private Button button1;
-        private Button button2;
+        private TextBox txtbxDuracion;
+        private TextBox txtbxNombreCancion;
+        private TextBox txtbxAlbum;
+        private TextBox txtboxGenero;
+        private Button btnSubirArchivo;
+        private Button btnAgregarActualizar;
         private PictureBox pictureBox1;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
+        private ProgressBar pBMusicProgress;
+        private System.Windows.Forms.Timer ProgressTimer;
     }
 }
