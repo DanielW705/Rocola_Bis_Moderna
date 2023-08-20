@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            tableLayoutPanel3 = new TableLayoutPanel();
+            CuerpoRocola = new TableLayoutPanel();
+            CuerpoControles = new TableLayoutPanel();
+            ControlesArchivo = new TableLayoutPanel();
             txtbxDuracion = new TextBox();
             label1 = new Label();
             txtbxNombreCancion = new TextBox();
@@ -43,80 +43,83 @@
             txtboxGenero = new TextBox();
             btnSubirArchivo = new Button();
             btnAgregarActualizar = new Button();
-            tableLayoutPanel4 = new TableLayoutPanel();
-            pictureBox1 = new PictureBox();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox4 = new PictureBox();
+            ControlesMusica = new TableLayoutPanel();
+            pbxAntes = new PictureBox();
+            pbxPlai = new PictureBox();
+            pbxPausa = new PictureBox();
+            pbxDespues = new PictureBox();
             pBMusicProgress = new ProgressBar();
             ProgressTimer = new System.Windows.Forms.Timer(components);
-            tableLayoutPanel1.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            tableLayoutPanel3.SuspendLayout();
-            tableLayoutPanel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            VistaCanciones = new DataGridView();
+            CuerpoRocola.SuspendLayout();
+            CuerpoControles.SuspendLayout();
+            ControlesArchivo.SuspendLayout();
+            ControlesMusica.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbxAntes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbxPlai).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbxPausa).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbxDespues).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)VistaCanciones).BeginInit();
             SuspendLayout();
             // 
-            // tableLayoutPanel1
+            // CuerpoRocola
             // 
-            tableLayoutPanel1.ColumnCount = 1;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(0, 0);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 2;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 65F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 35F));
-            tableLayoutPanel1.Size = new Size(800, 450);
-            tableLayoutPanel1.TabIndex = 0;
+            CuerpoRocola.ColumnCount = 1;
+            CuerpoRocola.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            CuerpoRocola.Controls.Add(CuerpoControles, 0, 1);
+            CuerpoRocola.Controls.Add(VistaCanciones, 0, 0);
+            CuerpoRocola.Dock = DockStyle.Fill;
+            CuerpoRocola.Location = new Point(0, 0);
+            CuerpoRocola.Name = "CuerpoRocola";
+            CuerpoRocola.RowCount = 2;
+            CuerpoRocola.RowStyles.Add(new RowStyle(SizeType.Percent, 65F));
+            CuerpoRocola.RowStyles.Add(new RowStyle(SizeType.Percent, 35F));
+            CuerpoRocola.Size = new Size(800, 450);
+            CuerpoRocola.TabIndex = 0;
             // 
-            // tableLayoutPanel2
+            // CuerpoControles
             // 
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 55F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45F));
-            tableLayoutPanel2.Controls.Add(tableLayoutPanel3, 0, 0);
-            tableLayoutPanel2.Controls.Add(tableLayoutPanel4, 1, 0);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(3, 295);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 1;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Size = new Size(794, 152);
-            tableLayoutPanel2.TabIndex = 0;
+            CuerpoControles.ColumnCount = 2;
+            CuerpoControles.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 55F));
+            CuerpoControles.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 45F));
+            CuerpoControles.Controls.Add(ControlesArchivo, 0, 0);
+            CuerpoControles.Controls.Add(ControlesMusica, 1, 0);
+            CuerpoControles.Dock = DockStyle.Fill;
+            CuerpoControles.Location = new Point(3, 295);
+            CuerpoControles.Name = "CuerpoControles";
+            CuerpoControles.RowCount = 1;
+            CuerpoControles.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            CuerpoControles.Size = new Size(794, 152);
+            CuerpoControles.TabIndex = 0;
             // 
-            // tableLayoutPanel3
+            // ControlesArchivo
             // 
-            tableLayoutPanel3.ColumnCount = 3;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
-            tableLayoutPanel3.Controls.Add(txtbxDuracion, 1, 1);
-            tableLayoutPanel3.Controls.Add(label1, 0, 0);
-            tableLayoutPanel3.Controls.Add(txtbxNombreCancion, 1, 0);
-            tableLayoutPanel3.Controls.Add(label2, 0, 1);
-            tableLayoutPanel3.Controls.Add(label3, 0, 2);
-            tableLayoutPanel3.Controls.Add(label5, 0, 4);
-            tableLayoutPanel3.Controls.Add(label4, 0, 3);
-            tableLayoutPanel3.Controls.Add(txtbxAlbum, 1, 2);
-            tableLayoutPanel3.Controls.Add(txtboxGenero, 1, 3);
-            tableLayoutPanel3.Controls.Add(btnSubirArchivo, 1, 4);
-            tableLayoutPanel3.Controls.Add(btnAgregarActualizar, 2, 2);
-            tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(3, 3);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 5;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
-            tableLayoutPanel3.Size = new Size(430, 146);
-            tableLayoutPanel3.TabIndex = 0;
+            ControlesArchivo.ColumnCount = 3;
+            ControlesArchivo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            ControlesArchivo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            ControlesArchivo.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 33.3333321F));
+            ControlesArchivo.Controls.Add(txtbxDuracion, 1, 1);
+            ControlesArchivo.Controls.Add(label1, 0, 0);
+            ControlesArchivo.Controls.Add(txtbxNombreCancion, 1, 0);
+            ControlesArchivo.Controls.Add(label2, 0, 1);
+            ControlesArchivo.Controls.Add(label3, 0, 2);
+            ControlesArchivo.Controls.Add(label5, 0, 4);
+            ControlesArchivo.Controls.Add(label4, 0, 3);
+            ControlesArchivo.Controls.Add(txtbxAlbum, 1, 2);
+            ControlesArchivo.Controls.Add(txtboxGenero, 1, 3);
+            ControlesArchivo.Controls.Add(btnSubirArchivo, 1, 4);
+            ControlesArchivo.Controls.Add(btnAgregarActualizar, 2, 2);
+            ControlesArchivo.Dock = DockStyle.Fill;
+            ControlesArchivo.Location = new Point(3, 3);
+            ControlesArchivo.Name = "ControlesArchivo";
+            ControlesArchivo.RowCount = 5;
+            ControlesArchivo.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            ControlesArchivo.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            ControlesArchivo.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            ControlesArchivo.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            ControlesArchivo.RowStyles.Add(new RowStyle(SizeType.Percent, 20F));
+            ControlesArchivo.Size = new Size(430, 146);
+            ControlesArchivo.TabIndex = 0;
             // 
             // txtbxDuracion
             // 
@@ -220,114 +223,125 @@
             btnAgregarActualizar.Anchor = AnchorStyles.None;
             btnAgregarActualizar.Location = new Point(305, 68);
             btnAgregarActualizar.Name = "btnAgregarActualizar";
-            tableLayoutPanel3.SetRowSpan(btnAgregarActualizar, 2);
+            ControlesArchivo.SetRowSpan(btnAgregarActualizar, 2);
             btnAgregarActualizar.Size = new Size(105, 37);
             btnAgregarActualizar.TabIndex = 9;
             btnAgregarActualizar.Text = "Agregar";
             btnAgregarActualizar.UseVisualStyleBackColor = true;
             // 
-            // tableLayoutPanel4
+            // ControlesMusica
             // 
-            tableLayoutPanel4.ColumnCount = 4;
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            tableLayoutPanel4.Controls.Add(pictureBox1, 0, 1);
-            tableLayoutPanel4.Controls.Add(pictureBox2, 1, 1);
-            tableLayoutPanel4.Controls.Add(pictureBox3, 2, 1);
-            tableLayoutPanel4.Controls.Add(pictureBox4, 3, 1);
-            tableLayoutPanel4.Controls.Add(pBMusicProgress, 0, 0);
-            tableLayoutPanel4.Dock = DockStyle.Fill;
-            tableLayoutPanel4.Location = new Point(439, 3);
-            tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 2;
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
-            tableLayoutPanel4.Size = new Size(352, 146);
-            tableLayoutPanel4.TabIndex = 1;
+            ControlesMusica.ColumnCount = 4;
+            ControlesMusica.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            ControlesMusica.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            ControlesMusica.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            ControlesMusica.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            ControlesMusica.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
+            ControlesMusica.Controls.Add(pbxAntes, 0, 1);
+            ControlesMusica.Controls.Add(pbxPlai, 1, 1);
+            ControlesMusica.Controls.Add(pbxPausa, 2, 1);
+            ControlesMusica.Controls.Add(pbxDespues, 3, 1);
+            ControlesMusica.Controls.Add(pBMusicProgress, 0, 0);
+            ControlesMusica.Dock = DockStyle.Fill;
+            ControlesMusica.Location = new Point(439, 3);
+            ControlesMusica.Name = "ControlesMusica";
+            ControlesMusica.RowCount = 2;
+            ControlesMusica.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            ControlesMusica.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            ControlesMusica.Size = new Size(352, 146);
+            ControlesMusica.TabIndex = 1;
             // 
-            // pictureBox1
+            // pbxAntes
             // 
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = Rocola_Bis_Moderna.Properties.Resources.arrow;
-            pictureBox1.Location = new Point(3, 76);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(82, 67);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            pbxAntes.Dock = DockStyle.Fill;
+            pbxAntes.Image = Rocola_Bis_Moderna.Properties.Resources.arrow;
+            pbxAntes.Location = new Point(3, 76);
+            pbxAntes.Name = "pbxAntes";
+            pbxAntes.Size = new Size(82, 67);
+            pbxAntes.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbxAntes.TabIndex = 0;
+            pbxAntes.TabStop = false;
             // 
-            // pictureBox2
+            // pbxPlai
             // 
-            pictureBox2.Dock = DockStyle.Fill;
-            pictureBox2.Image = Rocola_Bis_Moderna.Properties.Resources.music_play;
-            pictureBox2.Location = new Point(91, 76);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(82, 67);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 1;
-            pictureBox2.TabStop = false;
+            pbxPlai.Dock = DockStyle.Fill;
+            pbxPlai.Image = Rocola_Bis_Moderna.Properties.Resources.music_play;
+            pbxPlai.Location = new Point(91, 76);
+            pbxPlai.Name = "pbxPlai";
+            pbxPlai.Size = new Size(82, 67);
+            pbxPlai.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbxPlai.TabIndex = 1;
+            pbxPlai.TabStop = false;
             // 
-            // pictureBox3
+            // pbxPausa
             // 
-            pictureBox3.Dock = DockStyle.Fill;
-            pictureBox3.Image = Rocola_Bis_Moderna.Properties.Resources.music_pause;
-            pictureBox3.Location = new Point(179, 76);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(82, 67);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 2;
-            pictureBox3.TabStop = false;
+            pbxPausa.Dock = DockStyle.Fill;
+            pbxPausa.Image = Rocola_Bis_Moderna.Properties.Resources.music_pause;
+            pbxPausa.Location = new Point(179, 76);
+            pbxPausa.Name = "pbxPausa";
+            pbxPausa.Size = new Size(82, 67);
+            pbxPausa.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbxPausa.TabIndex = 2;
+            pbxPausa.TabStop = false;
             // 
-            // pictureBox4
+            // pbxDespues
             // 
-            pictureBox4.Dock = DockStyle.Fill;
-            pictureBox4.Image = Rocola_Bis_Moderna.Properties.Resources.arrow;
-            pictureBox4.Location = new Point(267, 76);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(82, 67);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 3;
-            pictureBox4.TabStop = false;
+            pbxDespues.Dock = DockStyle.Fill;
+            pbxDespues.Image = Rocola_Bis_Moderna.Properties.Resources.arrow;
+            pbxDespues.Location = new Point(267, 76);
+            pbxDespues.Name = "pbxDespues";
+            pbxDespues.Size = new Size(82, 67);
+            pbxDespues.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbxDespues.TabIndex = 3;
+            pbxDespues.TabStop = false;
             // 
             // pBMusicProgress
             // 
             pBMusicProgress.Anchor = AnchorStyles.None;
-            tableLayoutPanel4.SetColumnSpan(pBMusicProgress, 4);
+            ControlesMusica.SetColumnSpan(pBMusicProgress, 4);
             pBMusicProgress.Location = new Point(4, 25);
             pBMusicProgress.Name = "pBMusicProgress";
             pBMusicProgress.Size = new Size(343, 23);
             pBMusicProgress.TabIndex = 4;
+            // 
+            // VistaCanciones
+            // 
+            VistaCanciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            VistaCanciones.Dock = DockStyle.Fill;
+            VistaCanciones.Location = new Point(3, 3);
+            VistaCanciones.Name = "VistaCanciones";
+            VistaCanciones.RowTemplate.Height = 25;
+            VistaCanciones.Size = new Size(794, 286);
+            VistaCanciones.TabIndex = 1;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(tableLayoutPanel1);
+            Controls.Add(CuerpoRocola);
             Name = "Form1";
             Text = "Form1";
             FormClosing += Form1_FormClosing;
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel3.ResumeLayout(false);
-            tableLayoutPanel3.PerformLayout();
-            tableLayoutPanel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            CuerpoRocola.ResumeLayout(false);
+            CuerpoControles.ResumeLayout(false);
+            ControlesArchivo.ResumeLayout(false);
+            ControlesArchivo.PerformLayout();
+            ControlesMusica.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pbxAntes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbxPlai).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbxPausa).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbxDespues).EndInit();
+            ((System.ComponentModel.ISupportInitialize)VistaCanciones).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private TableLayoutPanel tableLayoutPanel1;
-        private TableLayoutPanel tableLayoutPanel2;
-        private TableLayoutPanel tableLayoutPanel3;
-        private TableLayoutPanel tableLayoutPanel4;
+        private TableLayoutPanel CuerpoRocola;
+        private TableLayoutPanel CuerpoControles;
+        private TableLayoutPanel ControlesArchivo;
+        private TableLayoutPanel ControlesMusica;
         private Label label1;
         private Label label2;
         private Label label3;
@@ -339,11 +353,12 @@
         private TextBox txtboxGenero;
         private Button btnSubirArchivo;
         private Button btnAgregarActualizar;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox4;
+        private PictureBox pbxAntes;
+        private PictureBox pbxPlai;
+        private PictureBox pbxPausa;
+        private PictureBox pbxDespues;
         private ProgressBar pBMusicProgress;
         private System.Windows.Forms.Timer ProgressTimer;
+        private DataGridView VistaCanciones;
     }
 }
