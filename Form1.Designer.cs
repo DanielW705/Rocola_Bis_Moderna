@@ -49,8 +49,8 @@
             pbxPausa = new PictureBox();
             pbxDespues = new PictureBox();
             pBMusicProgress = new ProgressBar();
+            DataGridViewVistaCanciones = new DataGridView();
             ProgressTimer = new System.Windows.Forms.Timer(components);
-            VistaCanciones = new DataGridView();
             CuerpoRocola.SuspendLayout();
             CuerpoControles.SuspendLayout();
             ControlesArchivo.SuspendLayout();
@@ -59,7 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)pbxPlai).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxPausa).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbxDespues).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)VistaCanciones).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridViewVistaCanciones).BeginInit();
             SuspendLayout();
             // 
             // CuerpoRocola
@@ -67,7 +67,7 @@
             CuerpoRocola.ColumnCount = 1;
             CuerpoRocola.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             CuerpoRocola.Controls.Add(CuerpoControles, 0, 1);
-            CuerpoRocola.Controls.Add(VistaCanciones, 0, 0);
+            CuerpoRocola.Controls.Add(DataGridViewVistaCanciones, 0, 0);
             CuerpoRocola.Dock = DockStyle.Fill;
             CuerpoRocola.Location = new Point(0, 0);
             CuerpoRocola.Name = "CuerpoRocola";
@@ -128,6 +128,7 @@
             txtbxDuracion.Name = "txtbxDuracion";
             txtbxDuracion.Size = new Size(137, 23);
             txtbxDuracion.TabIndex = 2;
+            txtbxDuracion.KeyPress += txtbxDuracion_KeyPress;
             // 
             // label1
             // 
@@ -217,6 +218,7 @@
             btnSubirArchivo.TabIndex = 8;
             btnSubirArchivo.Text = "Subir Archivo";
             btnSubirArchivo.UseVisualStyleBackColor = true;
+            btnSubirArchivo.Click += btnSubirArchivo_Click;
             // 
             // btnAgregarActualizar
             // 
@@ -228,6 +230,7 @@
             btnAgregarActualizar.TabIndex = 9;
             btnAgregarActualizar.Text = "Agregar";
             btnAgregarActualizar.UseVisualStyleBackColor = true;
+            btnAgregarActualizar.Click += btnAgregarActualizar_Click;
             // 
             // ControlesMusica
             // 
@@ -304,15 +307,15 @@
             pBMusicProgress.Size = new Size(343, 23);
             pBMusicProgress.TabIndex = 4;
             // 
-            // VistaCanciones
+            // DataGridViewVistaCanciones
             // 
-            VistaCanciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            VistaCanciones.Dock = DockStyle.Fill;
-            VistaCanciones.Location = new Point(3, 3);
-            VistaCanciones.Name = "VistaCanciones";
-            VistaCanciones.RowTemplate.Height = 25;
-            VistaCanciones.Size = new Size(794, 286);
-            VistaCanciones.TabIndex = 1;
+            DataGridViewVistaCanciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DataGridViewVistaCanciones.Dock = DockStyle.Fill;
+            DataGridViewVistaCanciones.Location = new Point(3, 3);
+            DataGridViewVistaCanciones.Name = "DataGridViewVistaCanciones";
+            DataGridViewVistaCanciones.RowTemplate.Height = 25;
+            DataGridViewVistaCanciones.Size = new Size(794, 286);
+            DataGridViewVistaCanciones.TabIndex = 1;
             // 
             // Form1
             // 
@@ -332,7 +335,7 @@
             ((System.ComponentModel.ISupportInitialize)pbxPlai).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxPausa).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbxDespues).EndInit();
-            ((System.ComponentModel.ISupportInitialize)VistaCanciones).EndInit();
+            ((System.ComponentModel.ISupportInitialize)DataGridViewVistaCanciones).EndInit();
             ResumeLayout(false);
         }
 
@@ -359,6 +362,6 @@
         private PictureBox pbxDespues;
         private ProgressBar pBMusicProgress;
         private System.Windows.Forms.Timer ProgressTimer;
-        private DataGridView VistaCanciones;
+        private DataGridView DataGridViewVistaCanciones;
     }
 }

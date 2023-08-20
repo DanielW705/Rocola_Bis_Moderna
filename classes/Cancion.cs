@@ -9,18 +9,16 @@ namespace Consola_Bis_Moderna.classes
 
         public string album;
 
-        public string artista;
-
         public string genero;
 
         private string nombre_extencion { get; }
 
         private byte[] archivo;
-        public Cancion(string nombre, string album, string artista, string genero, string nombre_extencion, byte[] archivo)
+        public Cancion(string nombre, double duracion_cancion, string album, string genero, string nombre_extencion, byte[] archivo)
         {
             this.nombre = nombre;
+            this.duracion_cancion = duracion_cancion;
             this.album = album;
-            this.artista = artista;
             this.genero = genero;
             this.nombre_extencion = nombre_extencion;
             this.archivo = archivo;
