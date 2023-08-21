@@ -1,5 +1,7 @@
 using Consola_Bis_Moderna.classes;
+using System.Data;
 using System.IO;
+using System.Windows.Documents;
 
 namespace Consola_Bis_Moderna
 {
@@ -20,6 +22,24 @@ namespace Consola_Bis_Moderna
             txtbxAlbum.Text = String.Empty;
             txtboxGenero.Text = String.Empty;
             DataGridViewVistaCanciones.DataSource = null;
+        }
+        public void CrearTabla()
+        {
+            DataTable dataTable = new DataTable();
+            DataColumn[] columns = new DataColumn[] {
+            new DataColumn("Cancion"),
+            new DataColumn("Album"),
+            new DataColumn("Genero"),
+            };
+            dataTable.Columns.AddRange(columns);
+            foreach (Cancion cancion in Canciones)
+            {
+                dataTable.Rows.Add(cancion.nombre, cancion.album, cancion.genero);
+            }
+            DataGridViewVistaCanciones.DataSource = dataTable;
+            DataGridViewButtonColumn btn = new DataGridViewButtonColumn() { HeaderText = "Buton prueba", Text = "Play", Name = "btnPlay" };
+            DataGridViewVistaCanciones.Columns.Add(btn);
+
         }
         public Form1()
         {
@@ -62,6 +82,7 @@ namespace Consola_Bis_Moderna
                     CancionBytes)
                     );
                 limpiar();
+                CrearTabla();
             }
             else
                 MessageBox.Show("Hace falta escribir algunos datos o falta subir un archivo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
