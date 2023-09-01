@@ -313,8 +313,8 @@
             DataGridViewVistaCanciones.AllowUserToDeleteRows = false;
             DataGridViewVistaCanciones.AllowUserToResizeColumns = false;
             DataGridViewVistaCanciones.AllowUserToResizeRows = false;
-            DataGridViewVistaCanciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            DataGridViewVistaCanciones.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            DataGridViewVistaCanciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            DataGridViewVistaCanciones.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             DataGridViewVistaCanciones.BorderStyle = BorderStyle.None;
             DataGridViewVistaCanciones.ClipboardCopyMode = DataGridViewClipboardCopyMode.Disable;
             DataGridViewVistaCanciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -328,6 +328,11 @@
             DataGridViewVistaCanciones.ShowCellErrors = false;
             DataGridViewVistaCanciones.Size = new Size(794, 286);
             DataGridViewVistaCanciones.TabIndex = 1;
+            DataGridViewVistaCanciones.CellContentClick += DataGridViewVistaCanciones_CellContentClick;
+            // 
+            // ProgressTimer
+            // 
+            ProgressTimer.Tick += ProgressTimer_Tick;
             // 
             // Form1
             // 
@@ -350,6 +355,8 @@
             ((System.ComponentModel.ISupportInitialize)DataGridViewVistaCanciones).EndInit();
             ResumeLayout(false);
         }
+
+
 
         #endregion
 
