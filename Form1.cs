@@ -26,8 +26,13 @@ namespace Consola_Bis_Moderna
 
         private void Player_PlayStateChange(int NewState)
         {
-            if (!ProgressTimer.Enabled)
+
+            if (WMPPlayState.wmppsPlaying == (WMPPlayState)NewState)
                 ProgressTimer.Start();
+            else if (WMPPlayState.wmppsPaused == (WMPPlayState)NewState)
+                ProgressTimer.Stop();
+            else if (WMPPlayState.wmppsStopped == (WMPPlayState)NewState)
+                ProgressTimer.Stop();
         }
 
         public void limpiar()
@@ -55,7 +60,6 @@ namespace Consola_Bis_Moderna
             DataGridViewVistaCanciones.Columns.Add(btn);
             foreach (Cancion cancion in Canciones)
             {
-                DataGridViewButtonCell cell = new DataGridViewButtonCell() { };
                 dataTable.Rows.Add(cancion.nombre, cancion.album, cancion.genero);
             }
         }
@@ -113,13 +117,15 @@ namespace Consola_Bis_Moderna
             {
                 Cancion cancion_seleccionada = Canciones[e.RowIndex];
                 cancion_seleccionada.CrearCancion(ref player);
+                pBMusicProgress.Maximum = (int)cancion_seleccionada.duracion_cancion;
                 player.controls.play();
             }
         }
 
         private void ProgressTimer_Tick(object sender, EventArgs e)
         {
-            pBMusicProgress.Value++;
+            //if (pBMusicProgress.Value < pBMusicProgress.Maximum)
+            pBMusicProgress.Value = (int)player.controls.currentPosition;
         }
     }
 }
