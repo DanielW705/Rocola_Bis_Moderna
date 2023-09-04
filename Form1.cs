@@ -16,7 +16,16 @@ namespace Consola_Bis_Moderna
 
         public string NombreExtension;
 
+        int song_index = 0;
 
+        public void nextSong(int i)
+        {
+
+            Cancion cancion_seleccionada = Canciones[i];
+            cancion_seleccionada.CrearCancion(ref player);
+            pBMusicProgress.Maximum = (int)cancion_seleccionada.duracion_cancion;
+            player.controls.play();
+        }
 
         public Form1()
         {
@@ -24,15 +33,28 @@ namespace Consola_Bis_Moderna
             player.PlayStateChange += Player_PlayStateChange;
         }
 
+        int before = 0;
         private void Player_PlayStateChange(int NewState)
         {
-
             if (WMPPlayState.wmppsPlaying == (WMPPlayState)NewState)
                 ProgressTimer.Start();
+            //else if (WMPPlayState.wmppsMediaEnded == (WMPPlayState)NewState)
+            //    before = NewState;
+            //else if (WMPPlayState.wmppsMediaEnded == (WMPPlayState)before && WMPPlayState.wmppsTransitioning == (WMPPlayState)NewState)
+            //{
+            //    ProgressTimer.Stop();
+            //    pBMusicProgress.Value = 0;
+            //    i = nextSong(i);
+            //}
             else if (WMPPlayState.wmppsPaused == (WMPPlayState)NewState)
+            {
                 ProgressTimer.Stop();
+            }
             else if (WMPPlayState.wmppsStopped == (WMPPlayState)NewState)
+            {
                 ProgressTimer.Stop();
+                pBMusicProgress.Value = 0;
+            }
         }
 
         public void limpiar()
@@ -115,10 +137,8 @@ namespace Consola_Bis_Moderna
         {
             if (e.ColumnIndex == 3)
             {
-                Cancion cancion_seleccionada = Canciones[e.RowIndex];
-                cancion_seleccionada.CrearCancion(ref player);
-                pBMusicProgress.Maximum = (int)cancion_seleccionada.duracion_cancion;
-                player.controls.play();
+                song_index = e.RowIndex;
+                nextSong(e.RowIndex);
             }
         }
 
@@ -126,6 +146,50 @@ namespace Consola_Bis_Moderna
         {
             //if (pBMusicProgress.Value < pBMusicProgress.Maximum)
             pBMusicProgress.Value = (int)player.controls.currentPosition;
+        }
+
+        private void after_button_Click(object sender, EventArgs e)
+        {
+            if (song_index < Canciones.Count - 1)
+            {
+                player.controls.stop();
+                song_index++;
+                nextSong(song_index);
+            }
+            else
+            {
+                player.controls.stop();
+                song_index = 0;
+                nextSong(song_index);
+            }
+        }
+
+        private void play_button_Click(object sender, EventArgs e)
+        {
+            if (player.playState == WMPPlayState.wmppsPaused)
+                player.controls.play();
+        }
+
+        private void pause_button_Click(object sender, EventArgs e)
+        {
+            if (player.playState == WMPPlayState.wmppsPlaying)
+                player.controls.pause();
+        }
+
+        private void before_button_Click(object sender, EventArgs e)
+        {
+            if (song_index > 0)
+            {
+                player.controls.stop();
+                song_index--;
+                nextSong(song_index);
+            }
+            else
+            {
+                player.controls.stop();
+                song_index = Canciones.Count - 1;
+                nextSong(song_index);
+            }
         }
     }
 }

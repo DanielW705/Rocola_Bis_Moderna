@@ -44,10 +44,10 @@
             btnSubirArchivo = new Button();
             btnAgregarActualizar = new Button();
             ControlesMusica = new TableLayoutPanel();
-            pbxAntes = new PictureBox();
-            pbxPlai = new PictureBox();
-            pbxPausa = new PictureBox();
-            pbxDespues = new PictureBox();
+            after_button = new Button();
+            pause_button = new Button();
+            play_button = new Button();
+            before_button = new Button();
             pBMusicProgress = new ProgressBar();
             DataGridViewVistaCanciones = new DataGridView();
             ProgressTimer = new System.Windows.Forms.Timer(components);
@@ -55,10 +55,6 @@
             CuerpoControles.SuspendLayout();
             ControlesArchivo.SuspendLayout();
             ControlesMusica.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbxAntes).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pbxPlai).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pbxPausa).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pbxDespues).BeginInit();
             ((System.ComponentModel.ISupportInitialize)DataGridViewVistaCanciones).BeginInit();
             SuspendLayout();
             // 
@@ -240,10 +236,10 @@
             ControlesMusica.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             ControlesMusica.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             ControlesMusica.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 20F));
-            ControlesMusica.Controls.Add(pbxAntes, 0, 1);
-            ControlesMusica.Controls.Add(pbxPlai, 1, 1);
-            ControlesMusica.Controls.Add(pbxPausa, 2, 1);
-            ControlesMusica.Controls.Add(pbxDespues, 3, 1);
+            ControlesMusica.Controls.Add(after_button, 3, 1);
+            ControlesMusica.Controls.Add(pause_button, 2, 1);
+            ControlesMusica.Controls.Add(play_button, 1, 1);
+            ControlesMusica.Controls.Add(before_button, 0, 1);
             ControlesMusica.Controls.Add(pBMusicProgress, 0, 0);
             ControlesMusica.Dock = DockStyle.Fill;
             ControlesMusica.Location = new Point(439, 3);
@@ -254,49 +250,73 @@
             ControlesMusica.Size = new Size(352, 146);
             ControlesMusica.TabIndex = 1;
             // 
-            // pbxAntes
+            // after_button
             // 
-            pbxAntes.Dock = DockStyle.Fill;
-            pbxAntes.Image = Rocola_Bis_Moderna.Properties.Resources.arrow;
-            pbxAntes.Location = new Point(3, 76);
-            pbxAntes.Name = "pbxAntes";
-            pbxAntes.Size = new Size(82, 67);
-            pbxAntes.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbxAntes.TabIndex = 0;
-            pbxAntes.TabStop = false;
+            after_button.BackColor = Color.Transparent;
+            after_button.BackgroundImage = Rocola_Bis_Moderna.Properties.Resources.arrow;
+            after_button.BackgroundImageLayout = ImageLayout.Zoom;
+            after_button.Cursor = Cursors.Hand;
+            after_button.Dock = DockStyle.Fill;
+            after_button.FlatStyle = FlatStyle.Flat;
+            after_button.ForeColor = Color.Transparent;
+            after_button.Location = new Point(267, 76);
+            after_button.Name = "after_button";
+            after_button.Size = new Size(82, 67);
+            after_button.TabIndex = 8;
+            after_button.TextImageRelation = TextImageRelation.ImageAboveText;
+            after_button.UseVisualStyleBackColor = true;
+            after_button.Click += after_button_Click;
             // 
-            // pbxPlai
+            // pause_button
             // 
-            pbxPlai.Dock = DockStyle.Fill;
-            pbxPlai.Image = Rocola_Bis_Moderna.Properties.Resources.music_play;
-            pbxPlai.Location = new Point(91, 76);
-            pbxPlai.Name = "pbxPlai";
-            pbxPlai.Size = new Size(82, 67);
-            pbxPlai.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbxPlai.TabIndex = 1;
-            pbxPlai.TabStop = false;
+            pause_button.BackColor = Color.Transparent;
+            pause_button.BackgroundImage = Rocola_Bis_Moderna.Properties.Resources.music_pause;
+            pause_button.BackgroundImageLayout = ImageLayout.Zoom;
+            pause_button.Cursor = Cursors.Hand;
+            pause_button.Dock = DockStyle.Fill;
+            pause_button.FlatStyle = FlatStyle.Flat;
+            pause_button.ForeColor = Color.Transparent;
+            pause_button.Location = new Point(179, 76);
+            pause_button.Name = "pause_button";
+            pause_button.Size = new Size(82, 67);
+            pause_button.TabIndex = 7;
+            pause_button.TextImageRelation = TextImageRelation.ImageAboveText;
+            pause_button.UseVisualStyleBackColor = true;
+            pause_button.Click += pause_button_Click;
             // 
-            // pbxPausa
+            // play_button
             // 
-            pbxPausa.Dock = DockStyle.Fill;
-            pbxPausa.Image = Rocola_Bis_Moderna.Properties.Resources.music_pause;
-            pbxPausa.Location = new Point(179, 76);
-            pbxPausa.Name = "pbxPausa";
-            pbxPausa.Size = new Size(82, 67);
-            pbxPausa.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbxPausa.TabIndex = 2;
-            pbxPausa.TabStop = false;
+            play_button.BackColor = Color.Transparent;
+            play_button.BackgroundImage = Rocola_Bis_Moderna.Properties.Resources.music_play;
+            play_button.BackgroundImageLayout = ImageLayout.Zoom;
+            play_button.Cursor = Cursors.Hand;
+            play_button.Dock = DockStyle.Fill;
+            play_button.FlatStyle = FlatStyle.Flat;
+            play_button.ForeColor = Color.Transparent;
+            play_button.Location = new Point(91, 76);
+            play_button.Name = "play_button";
+            play_button.Size = new Size(82, 67);
+            play_button.TabIndex = 6;
+            play_button.TextImageRelation = TextImageRelation.ImageAboveText;
+            play_button.UseVisualStyleBackColor = true;
+            play_button.Click += play_button_Click;
             // 
-            // pbxDespues
+            // before_button
             // 
-            pbxDespues.Dock = DockStyle.Fill;
-            pbxDespues.Image = Rocola_Bis_Moderna.Properties.Resources.arrow;
-            pbxDespues.Location = new Point(267, 76);
-            pbxDespues.Name = "pbxDespues";
-            pbxDespues.Size = new Size(82, 67);
-            pbxDespues.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbxDespues.TabIndex = 3;
-            pbxDespues.TabStop = false;
+            before_button.BackColor = Color.Transparent;
+            before_button.BackgroundImage = Rocola_Bis_Moderna.Properties.Resources.arrow;
+            before_button.BackgroundImageLayout = ImageLayout.Zoom;
+            before_button.Cursor = Cursors.Hand;
+            before_button.Dock = DockStyle.Fill;
+            before_button.FlatStyle = FlatStyle.Flat;
+            before_button.ForeColor = Color.Transparent;
+            before_button.Location = new Point(3, 76);
+            before_button.Name = "before_button";
+            before_button.Size = new Size(82, 67);
+            before_button.TabIndex = 5;
+            before_button.TextImageRelation = TextImageRelation.ImageAboveText;
+            before_button.UseVisualStyleBackColor = true;
+            before_button.Click += before_button_Click;
             // 
             // pBMusicProgress
             // 
@@ -348,10 +368,6 @@
             ControlesArchivo.ResumeLayout(false);
             ControlesArchivo.PerformLayout();
             ControlesMusica.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pbxAntes).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pbxPlai).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pbxPausa).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pbxDespues).EndInit();
             ((System.ComponentModel.ISupportInitialize)DataGridViewVistaCanciones).EndInit();
             ResumeLayout(false);
         }
@@ -375,12 +391,12 @@
         private TextBox txtboxGenero;
         private Button btnSubirArchivo;
         private Button btnAgregarActualizar;
-        private PictureBox pbxAntes;
-        private PictureBox pbxPlai;
-        private PictureBox pbxPausa;
-        private PictureBox pbxDespues;
         private ProgressBar pBMusicProgress;
         private System.Windows.Forms.Timer ProgressTimer;
         private DataGridView DataGridViewVistaCanciones;
+        private Button after_button;
+        private Button pause_button;
+        private Button play_button;
+        private Button before_button;
     }
 }
